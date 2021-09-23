@@ -34,6 +34,16 @@ namespace Domain.Test
             InvalidOperationException ex = Assert.Throws<InvalidOperationException>(() => productoSimple.RegistrarEntrada(-20, entradasProducto));
             Assert.AreEqual(ex.Message, "La cantidad debe ser mayor a 0");
         }
+        // Entrada correcta
+        [Test]
+        public void EntradaCorrecta()
+        {
+            List<Entrada> entradasProducto = new List<Entrada>();
+
+            productoSimple.RegistrarEntrada(20, entradasProducto);
+            Assert.AreEqual(productoSimple.cantidadDisponible, 21);
+
+        }
 
 
     }

@@ -83,6 +83,13 @@ namespace Domain.Test
             productoSimple.RegistrarSalida(9, salidasProducto);
             Assert.AreEqual(productoSimple.cantidadDisponible, 2);
         }
+        //salida negativa producto preparado
+        [Test]
+        public void SalidaNegativaPP()
+        {
+            InvalidOperationException ex = Assert.Throws<InvalidOperationException>(() => productoPreparado.RegistrarSalida(-20, salidasProducto));
+            Assert.AreEqual(ex.Message, "La cantidad debe ser mayor a 0");
+        }
 
     }
 }

@@ -90,6 +90,20 @@ namespace Domain.Test
             InvalidOperationException ex = Assert.Throws<InvalidOperationException>(() => productoPreparado.RegistrarSalida(-20, salidasProducto));
             Assert.AreEqual(ex.Message, "La cantidad debe ser mayor a 0");
         }
+        //salida correcta producto compuesto preparado
+        [Test]
+        public void salidaCorrectaPP()
+        {
+            productoPreparado.RegistrarSalida(1, salidasProducto);
+            Assert.AreEqual(productoPreparado.Costo, 5000);
+        }
 
+        //salida incorrecta producto preparado
+        [Test]
+        public void salidaIncorrectaPP()
+        {
+            InvalidOperationException ex = Assert.Throws<InvalidOperationException>(() => productoPreparado.RegistrarSalida(12, salidasProducto));
+            Assert.AreEqual(ex.Message, "El producto GT-02 esta sin cantidad disponible");
+        }
     }
 }

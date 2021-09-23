@@ -76,6 +76,16 @@ namespace Domain.Test
             combo.ProductosPreparados = productosCombo;
         }
 
-       
+        //salida negativa combo
+        [Test]
+        public void SalidaNegativaCombo()
+        {
+            InvalidOperationException ex = Assert.Throws<InvalidOperationException>(() => combo.RegistrarSalida(-20, salidasProducto));
+            Assert.AreEqual(ex.Message, "La cantidad debe ser mayor a 0");
+        }
+
+
+
+
     }
 }

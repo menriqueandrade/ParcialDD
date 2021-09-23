@@ -86,6 +86,12 @@ namespace Domain.Test
 
 
 
-
+        //salida incorrecta para el combo
+        [Test]
+        public void salidaIncorrectaCombo()
+        {
+            InvalidOperationException ex = Assert.Throws<InvalidOperationException>(() => combo.RegistrarSalida(11, salidasProducto));
+            Assert.AreEqual(ex.Message, "El producto GT-01 esta sin cantidad disponible");
+        }
     }
 }

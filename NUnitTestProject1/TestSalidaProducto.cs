@@ -105,5 +105,14 @@ namespace Domain.Test
             InvalidOperationException ex = Assert.Throws<InvalidOperationException>(() => productoPreparado.RegistrarSalida(12, salidasProducto));
             Assert.AreEqual(ex.Message, "El producto GT-02 esta sin cantidad disponible");
         }
+
+        //salida incorrecta poserior a una correcta producto preparado
+        [Test]
+        public void salidaIncorrectaPosteriorPP()
+        {
+            productoPreparado.RegistrarSalida(2, salidasProducto);
+            InvalidOperationException ex = Assert.Throws<InvalidOperationException>(() => productoPreparado.RegistrarSalida(9, salidasProducto));
+            Assert.AreEqual(ex.Message, "El producto GT-02 esta sin cantidad disponible");
+        }
     }
 }

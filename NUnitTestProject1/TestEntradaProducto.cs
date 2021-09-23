@@ -25,6 +25,16 @@ namespace Domain.Test
            
         }
 
-        
+        //entrada menor a 0
+        [Test]
+        public void EntradaNegativa()
+        {
+            List<Entrada> entradasProducto = new List<Entrada>();
+
+            InvalidOperationException ex = Assert.Throws<InvalidOperationException>(() => productoSimple.RegistrarEntrada(-20, entradasProducto));
+            Assert.AreEqual(ex.Message, "La cantidad debe ser mayor a 0");
+        }
+
+
     }
 }

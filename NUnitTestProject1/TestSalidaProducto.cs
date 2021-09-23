@@ -47,8 +47,24 @@ namespace Domain.Test
             productoPreparado.NombreProducto = "sixpack de gaseosas";
             productoPreparado.Precio = 9000;
             productoPreparado.productos = productosPedido;
+
+
         }
 
-        
+        [Test]
+        public void SalidaNegativaPS()
+        {
+            InvalidOperationException ex = Assert.Throws<InvalidOperationException>(() => productoSimple.RegistrarSalida(-20, salidasProducto));
+            Assert.AreEqual(ex.Message, "La cantidad debe ser mayor a 0");
+        }
+
+        //salida incorrecta producto simple
+        [Test]
+        public void salidaIncorrectaPS()
+        {
+            InvalidOperationException ex = Assert.Throws<InvalidOperationException>(() => productoSimple.RegistrarSalida(20, salidasProducto));
+            Assert.AreEqual(ex.Message, "El producto GS-09 no cuenta con esa cantidad.");
+        }
+
     }
 }

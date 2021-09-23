@@ -44,6 +44,18 @@ namespace Domain.Test
             Assert.AreEqual(productoSimple.cantidadDisponible, 21);
 
         }
+        // Entrada correcta posterior
+        [Test]
+        public void EntradaCorrectaPosterior()
+        {
+            List<Entrada> entradasProducto = new List<Entrada>();
+
+            productoSimple.RegistrarEntrada(20, entradasProducto);
+            productoSimple.RegistrarEntrada(30, entradasProducto);
+
+            Assert.AreEqual(productoSimple.cantidadDisponible, 51);
+
+        }
 
 
     }

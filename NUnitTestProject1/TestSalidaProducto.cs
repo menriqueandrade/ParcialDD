@@ -74,5 +74,15 @@ namespace Domain.Test
             Assert.AreEqual(productoSimple.cantidadDisponible, 11);
         }
 
+        //salida posterior correcta producto simple
+        [Test]
+        public void salidaPosteriorCorrectaPS()
+        {
+            productoSimple.cantidadDisponible = 20;
+            productoSimple.RegistrarSalida(9, salidasProducto);
+            productoSimple.RegistrarSalida(9, salidasProducto);
+            Assert.AreEqual(productoSimple.cantidadDisponible, 2);
+        }
+
     }
 }

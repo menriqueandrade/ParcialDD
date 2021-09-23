@@ -101,5 +101,14 @@ namespace Domain.Test
             combo.RegistrarSalida(2, salidasProducto);
             Assert.AreEqual(combo.Precio, 33000);
         }
+        //salida correcta posterior para el combo
+        [Test]
+        public void salidaposteriorCorrectaCombo()
+        {
+            combo.RegistrarSalida(2, salidasProducto);
+            combo.RegistrarSalida(2, salidasProducto);
+            Assert.AreEqual(combo.Precio, 66000);
+        }
+
     }
 }

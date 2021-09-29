@@ -32,7 +32,7 @@ namespace Domain.Entities
 
                 Entrada entradaNueva = new Entrada();
                 entradaNueva.Cantidad = cantidad;
-                entradaNueva.fechaEntrada = DateTime.Today;
+                entradaNueva.FechaEntrada = DateTime.Today;
                 entradaNueva.IdProducto = IdProducto;
 
                 entradasProducto.Add(entradaNueva);
@@ -49,7 +49,7 @@ namespace Domain.Entities
             {
                 if (cantidad > cantidadDisponible)
                 {
-                    throw new InvalidOperationException("El producto "+IdProducto+" no cuenta con esa cantidad.");
+                    throw new InvalidOperationException("El producto " + IdProducto + " no cuenta con esa cantidad.");
                 }
                 else
                 {
@@ -57,7 +57,7 @@ namespace Domain.Entities
 
                     Salida salidaNueva = new Salida();
                     salidaNueva.Cantidad = cantidad;
-                    salidaNueva.fechaSalida = DateTime.Today;
+                    salidaNueva.FechaSalida = DateTime.Today;
                     salidaNueva.IdProducto = IdProducto;
                     salidaNueva.Costo = Costo * cantidad;
                     salidaNueva.PrecioVenta = PrecioIndividual * cantidad;

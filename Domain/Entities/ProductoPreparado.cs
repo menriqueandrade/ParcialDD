@@ -12,7 +12,7 @@ namespace Domain.Entities
         public double Costo { get; set; }
         public double Precio { get; set; }
         public List<ProductoSimple> productos;
-       
+
         public ProductoPreparado()
         {
             productos = new List<ProductoSimple>();
@@ -28,16 +28,16 @@ namespace Domain.Entities
             {
                 this.Costo = 0;
                 this.Precio = 0;
-               //recorro el numero de pedidos       
+                //recorro el numero de pedidos       
                 for (int i = 1; i <= cantidad; i++)
                 {
-                   //recorro los productos del pedido
+                    //recorro los productos del pedido
                     foreach (var item in productos)
                     {
                         //descuento de cantidad desde los ingredientes
                         if (item.cantidadDisponible == 0)
                         {
-                            throw new InvalidOperationException("El producto "+item.IdProducto+" esta sin cantidad disponible");
+                            throw new InvalidOperationException("El producto " + item.IdProducto + " esta sin cantidad disponible");
                         }
                         else
                         {

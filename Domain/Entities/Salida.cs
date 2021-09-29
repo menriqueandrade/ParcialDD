@@ -10,7 +10,7 @@ namespace Domain.Entities
         public int Cantidad { get; set; }
         public double Costo { get; set; }
         public double PrecioVenta { get; set; }
-        public DateTime fechaSalida{ get; set; }
+        public DateTime FechaSalida { get; set; }
 
         public Salida()
         {

@@ -8,6 +8,7 @@ namespace Domain.Entities
 {
     public class Combo : Entity<int>, IProductoCompuesto
     {
+        public string NombreCombo { get; set; }
         public List<ProductoPreparado> ProductosPreparados { get; set; }
         public ProductoSimple ProductoSimple { get; set; }
         public double Costo { get; set; }
@@ -25,9 +26,11 @@ namespace Domain.Entities
             {
                 throw new InvalidOperationException("La cantidad debe ser mayor a 0");
             }
-            else {
+            else
+            {
                 //recorro la cantidad de pedidos de combo
-                for (int i = 1; i <= cantidad; i++) {
+                for (int i = 1; i <= cantidad; i++)
+                {
                     //calculo el costo de los productos peparados
                     foreach (var item in ProductosPreparados)
                     {
